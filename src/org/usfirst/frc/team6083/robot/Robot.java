@@ -68,25 +68,30 @@ public class Robot extends IterativeRobot {
 		}
 		else{
 			direct =1.0;
-		}
+		}//revert robot direction 
 
 		if (stick.getRawButton(1)) {
 			myRobot.arcadeDrive(stick.getY() *(-direct*speedy), stick.getX() *(-direct*speedy));
+			//let robot faster
 		} 
 		else {
 			myRobot.arcadeDrive(stick.getY() *(-direct*slow), stick.getX() *(-direct*slow));
 		}
+		//control robot drive
 
 		if (stick.getRawButton(2)) {
 			armStarted = true;
+			//set armStarted to true
 		}
 		else if(stick.getRawButton(3)) {
 			pid.setSetpoint(0);
 			armStarted = false;
+			//reset arm position and set armStarted to false
 		}
 		
 		if(armStarted) {
 			pid.setSetpoint((stick.getThrottle()+1)*30.00);
+			//set arm to specific position while areStarted is true
 		}
 			
 		Timer.delay(0.005);	 
