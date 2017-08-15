@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
 	
 	public static double speedy = 1.0, slow = 0.6;
 	public static double direct = 1.0;
+	public static boolean armStarted = false;
 	//define variable
 	
 	RobotDrive myRobot = new RobotDrive(leftmotor,rightmotor);
@@ -77,17 +78,17 @@ public class Robot extends IterativeRobot {
 		}
 
 		if (stick.getRawButton(2)) {
-			while (!stick.getRawButton(3)) {
-				pid.setSetpoint((stick.getThrottle()+1)*30.00);
-				if (stick.getRawButton(1)) {
-					myRobot.arcadeDrive(stick.getY() *(-direct*speedy), stick.getX() *(-direct*speedy));
-				}
-				else {
-					myRobot.arcadeDrive(stick.getY() *(-direct*slow), stick.getX() *(-direct*slow));
-				}
-			}
-			pid.setSetpoint(0);
+			armStarted = true;
 		}
+		else if(stick.getRawButton(3)) {
+			pid.setSetpoint(0);
+			armStarted = false;
+		}
+		
+		if(armStarted) {
+			pid.setSetpoint((stick.getThrottle()+1)*30.00);
+		}
+			
 		Timer.delay(0.005);	 
 		//delay for 5ms
 	}
