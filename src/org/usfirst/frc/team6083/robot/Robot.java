@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	PIDController pid = new PIDController(0.02, 0, 0, encoder, encodermotor);
 	//define PIDController
 	
-	public static double speedy = 1.0, slow = 0.6;
+	public static final double speedy = 1.0, slow = 0.6;
 	public static double direct = 1.0;
 	public static boolean armStarted = false;
 	//define variable
