@@ -46,6 +46,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		CameraServer.getInstance().startAutomaticCapture(0);
 		//start USB cameras
+		encoder.reset();
+		//reset encoder position when robot startup
 	}
 	
 	/*
