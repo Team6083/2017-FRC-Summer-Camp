@@ -1,5 +1,7 @@
 package org.usfirst.frc.team6083.robot;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -19,7 +21,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 public class Robot extends IterativeRobot {
 	VictorSP leftmotor = new VictorSP(0);
 	VictorSP rightmotor = new VictorSP(1);
-	VictorSP encodermotor = new VictorSP(2);
+	CANTalon encodermotor = new CANTalon(1);
 	//define motors
 	
 	Joystick stick = new Joystick(0);
