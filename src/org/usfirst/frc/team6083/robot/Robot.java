@@ -73,13 +73,13 @@ public class Robot extends IterativeRobot {
 			direct =1.0;
 		}//revert robot direction 
 
-		if (stick.getRawButton(1)) {
+		/*f (stick.getRawButton(1)) {
 			myRobot.arcadeDrive(stick.getY() *(-direct*speedy), stick.getX() *(-direct*speedy));
 			//let robot faster
 		} 
-		else {
+		else {*/
 			myRobot.arcadeDrive(stick.getY() *(-direct*slow), stick.getX() *(-direct*slow));
-		}
+		//}
 		//control robot drive
 
 		if (stick.getRawButton(2)) {
